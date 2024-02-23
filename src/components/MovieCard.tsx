@@ -1,30 +1,18 @@
-import { useState } from "react";
-import AddMovie from "./AddMovie";
-import { MovieProps } from "./MovieList";
+import { MovieProps } from "../App";
 
-const MovieCard = () => {
-  const [movie, setMovie] = useState<MovieProps>();
+type MovieCardProps = {
+  movie: MovieProps;
+  onDeleteMovie: (id: number) => void;
+};
 
-  function handleMovie(movie: MovieProps) {
-    const newMovie: MovieProps = {
-      title: movie.title,
-      rating: movie.rating,
-      genre: movie.genre,
-      description: movie.description,
-    };
-    setMovie(newMovie);
-  }
-
+const MovieCard = ({ movie, onDeleteMovie }: MovieCardProps) => {
   return (
-    <div>
-      <AddMovie onAddMovie={handleMovie} />
-
-      <h1>{movie?.title}</h1>
-      <span>{movie?.rating}</span>
-      <p>{movie?.genre}</p>
-      <p>{movie?.description}</p>
+    <div onClick={() => onDeleteMovie(movie.id)}>
+      <h1>{movie.title}</h1>
+      <span>{movie.rating}</span>
+      <p>{movie.genre}</p>
+      <p>{movie.description}</p>
     </div>
   );
 };
-
 export default MovieCard;

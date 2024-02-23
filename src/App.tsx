@@ -1,22 +1,40 @@
+import { useState } from "react";
+import AddMovie from "./components/AddMovie";
 import MovieList from "./components/MovieList";
-/* import AddMovie from "./components/AddMovie"; */
-import MovieCard from "./components/MovieCard";
+
+export type MovieProps = {
+  title: string;
+  rating: number;
+  genre: string;
+  description: string;
+  id: number;
+};
 
 export function App() {
+  const [movies, setMovies] = useState<MovieProps[]>([]);
+
+  function handleAddMovie(movie: MovieProps) {
+    const newMovie: MovieProps = {
+      title: movie.title,
+      rating: movie.rating,
+      genre: movie.genre,
+      description: movie.description,
+      id: Math.random(),
+    };
+
+    setMovies((prevMovies) => {
+      return [...prevMovies, newMovie];
+    });
+  }
+
+  function handleDeleteMovie(id: number) {
+    setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== id));
+  }
+
   return (
     <>
-      <MovieCard />
-      <MovieList />
+      <AddMovie onAddMovie={handleAddMovie} />
+      <MovieList movies={movies} onDeleteMovie={handleDeleteMovie} />
     </>
   );
 }
-
-/*
-
-
-
---Add every movie object, that is created, to an array and render a <MovieCard> for every movie object with a map-function. 
-Put them under the <AddMovie> component.
-
---When you click on a <MovieCard> it should be deleted from the array. 
-*/

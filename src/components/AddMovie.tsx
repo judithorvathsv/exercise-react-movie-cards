@@ -18,6 +18,7 @@ const AddMovie = ({ onAddMovie }: NewMovieProps) => {
       rating: rating,
       genre: genre,
       description: description,
+      id: Math.random()
     };
     onAddMovie(newMovie);
   }

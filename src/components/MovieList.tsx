@@ -1,27 +1,17 @@
-import { useState } from "react";
 import MovieCard from "./MovieCard";
+import { MovieProps } from "../App";
 
-export type MovieProps = {
-  title: string;
-  rating: number;
-  genre: string;
-  description: string;
+type MovieListProps = {
+  movies: MovieProps[];
+  onDeleteMovie: (id: number) => void;
 };
 
-const MovieList = () => {
-  const [movieList, setMovieList] = useState<MovieProps[]>([]);
-
-  function handleMovieList(movie: MovieProps) {
-    setMovieList((prevMovie: any) => {
-      return [...prevMovie, movie];
-    });
-  }
-
+const MovieList = ({ movies, onDeleteMovie }: MovieListProps) => {
   return (
     <>
-      {/*       {movieList.map((movieItem, index) => (
-        <MovieCard key={index} movieItem={movieItem} />
-      ))} */}
+      {movies.map((movie: MovieProps) => (
+        <MovieCard key={movie.id} movie={movie} onDeleteMovie={onDeleteMovie} />
+      ))}
     </>
   );
 };
