@@ -1,4 +1,4 @@
-import { MovieProps } from "./MovieList";
+import { MovieProps } from "../App";
 
 type NewMovieProps = {
   onAddMovie: (movie: MovieProps) => void;
@@ -18,7 +18,7 @@ const AddMovie = ({ onAddMovie }: NewMovieProps) => {
       rating: rating,
       genre: genre,
       description: description,
-      id: Math.random()
+      id: Math.random(),
     };
     onAddMovie(newMovie);
   }
