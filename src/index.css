@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+#movieForm {
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 1rem 1rem 0rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.propertyDiv {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.propertyDiv label {
+  width: 5rem;
+}
+
+.textAreaAndButtonsDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  margin-bottom: 0.5rem;
+  border-radius: 2px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+#clearButton,
+#addButton {
+  width: 3rem;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.movieCard {
+  width: 20rem;
+  border: 1px solid black;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.movieTitleAndRating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 1.2rem;
+}
+
+.genre {
+  align-self: flex-end;
+}
+
+.movieCard p {
+  word-wrap: break-word;
+}
